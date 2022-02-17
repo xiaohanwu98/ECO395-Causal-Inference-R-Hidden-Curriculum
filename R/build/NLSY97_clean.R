@@ -37,3 +37,4 @@ read_csv(here("data/NLSY97_raw.csv")) %>%
   
   # write to a csv
   write_csv(here("data/NLSY97_clean.csv"))
+

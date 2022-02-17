@@ -15,3 +15,4 @@ read_csv(here("data/NLSY97_clean.csv")) %>%
   scale_fill_economist()
 
 ggsave(here("figures/arrests_by_racegender.png"), width=8, height=4.5)
+

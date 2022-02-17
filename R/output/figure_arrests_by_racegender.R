@@ -8,11 +8,11 @@ read_csv(here("data/NLSY97_clean.csv")) %>%
   geom_bar(stat = "identity", position = "dodge") +
   labs(
     x = "Race", 
-    y = "Mean Incarcerated", 
+    y = "Mean Incarcerations", 
     fill = "Gender",
-    title = "Mean Number of Incarcerated in 2002 by Race and Gender") +
+    title = "Mean Number of Incarcerations in 2002 by Race and Gender") +
   theme_minimal() +
   scale_fill_economist()
 
-ggsave(here("figures/incarcerated_by_racegender.png"), width=8, height=4.5)
+ggsave(here("figures/incarcerations_by_racegender.png"), width=8, height=4.5)
 

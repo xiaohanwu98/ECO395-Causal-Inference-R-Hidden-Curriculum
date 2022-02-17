@@ -22,3 +22,4 @@ stargazer(
   title = "Regression Output. Omitted category is Black Females.",
   label = "tab:regression"
 )
+

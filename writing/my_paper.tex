@@ -32,15 +32,19 @@
 
 % set the author, title, and date of the document. \maketitle adds it to the document.
 \author{Xiaohan Wu}
-\title{My Paper on NLSY97 Data of Incarceration Status}
+\title{Paper on NLSY97 Data of Incarceration Status}
 \date{Spring 2022}
 
 \begin{document}
 \maketitle
 
-\section{The First Section}
+\section{Introduction}
 
+This report describes patterns in incarceration status by race and gender in the year 2002, using NLSY97 publicly available data. Before analyzing the dataset, the raw dataset was mined into a clean dataset with readable variables wanted.
 
+The three variables to be analyzed are \texttt{race}, \texttt{gender}, and \texttt{total\_incarcerated}. The variable \texttt{race} includes \texttt{Black}, \texttt{Hispanic}, \texttt{Mixed Race}, and \texttt{Non-Black or Non-Hispanic}. The variable \texttt{total\_incarcerated} represents the count of months of incacerations in 2022 for the respondent who has the crime record.
+
+\section{Analysis}
 
 \begin{figure}[H]
     \begin{center}
@@ -50,8 +54,15 @@
     \label{fig:graph}
 \end{figure}
 
+The Figure \ref{fig:graph} above is a barplot showing the mean number of incarcerations in 2002 by \texttt{race} and \texttt{gender}.
+
+For respondents whose variable \texttt{race} is \texttt{Black}, 
+
+
 \input{../tables/incarcerations_by_racegender.tex}
 
 \input{../tables/regress_incarcerations_by_racegender.tex}
+
+\section{The Next Steps}
 
 \end{document}

@@ -40,9 +40,9 @@
 
 \section{Introduction}
 
-This report describes patterns in incarceration status by race and gender in the year 2002, using NLSY97 publicly available data. Before analyzing the dataset, the raw dataset was mined into a clean dataset with readable variables wanted.
+This report describes patterns in monthly incarceration status by race and gender in the year 2002, using NLSY97 publicly available data. Before analyzing the dataset, the raw dataset was mined into a clean dataset with readable variables wanted.
 
-The three variables to be analyzed are \texttt{race}, \texttt{gender}, and \texttt{total\_incarcerated}. The variable \texttt{race} includes \texttt{Black}, \texttt{Hispanic}, \texttt{Mixed Race}, and \texttt{Non-Black or Non-Hispanic}. The variable \texttt{total\_incarcerated} represents the count of months of incacerations in 2022 for the respondent who has the crime record.
+The three variables to be analyzed are \texttt{race}, \texttt{gender}, and \texttt{total\_incarcerated}. The variable \texttt{race} includes \texttt{Black}, \texttt{Hispanic}, \texttt{Mixed Race}, and \texttt{Non-Black or Non-Hispanic}. The variable \texttt{total\_incarcerated} summarizes each respondent's monthly incarceration status in 2002, representing the respondent's total months of incarceration in 2022.
 
 \section{Analysis}
 
@@ -50,19 +50,44 @@ The three variables to be analyzed are \texttt{race}, \texttt{gender}, and \text
     \begin{center}
         \includegraphics[width=.85\textwidth]{incarcerations_by_racegender}
     \end{center}
-    \caption{Mean Number of Incarcerations in 2002 by Race and Gender (this is the LaTeX caption, not the ggplot title)}
+    \caption{Mean Number of Incarcerated Months in 2002 by Race and Gender}
     \label{fig:graph}
 \end{figure}
 
-The Figure \ref{fig:graph} above is a barplot showing the mean number of incarcerations in 2002 by \texttt{race} and \texttt{gender}.
-
-For respondents whose variable \texttt{race} is \texttt{Black}, 
-
-
 \input{../tables/incarcerations_by_racegender.tex}
+
+The Figure \ref{fig:graph} above is a barplot showing the mean number of incarcerated months in 2002 by \texttt{race} and \texttt{gender}, while Table 1 above is showing the detailed values.
+
+For respondents whose variable \texttt{race} is \texttt{Black}, females' mean incarcerated month number is around 0.02, which is significantly lower than males' mean incarcerated month number (0.5). 
+
+For respondents whose variable \texttt{race} is \texttt{Hispanic}, females' mean incarcerated month number is around 0.03, which is significantly lower than males' mean incarcerated month number (0.16). 
+
+For respondents whose variable \texttt{race} is \texttt{Non-Black or Non-Hispanic}, females' mean incarcerated month number is around 0.02, which is significantly lower than males' mean incarcerated month number (0.11).
+
+For the above three different races, it could be concluded that mainly the males would get much more incarcerations than females in the group of respondents.
+
+However, for respondents whose variable \texttt{race} is \texttt{Mixed Race Non-Hispanic}, females' mean incarcerated month number is around 0.14, which is significantly higher than males' mean incarcerated month number (0). The result is quite unrealistic since the mean number of incarcerated months is unlikely to be 0 for males in any race category. A possible explanation would be that the gender for \texttt{Mixed Race Non-Hispanic} group is mistakenly recorded in the raw dataset. Further investigation and validation would be required and necessary.
+
+\newpage
 
 \input{../tables/regress_incarcerations_by_racegender.tex}
 
+The table above shows the regression output. The omitted category is Black Females. 
+
+The regression result can be shown by the equation below:
+
+\begin{equation*}
+    total\_incarcerated = -0.159 Hispanic - 0.174 Mixed Race - .189 Non-Black or Non-Hispanic + 0.194 Male + 0.155
+\end{equation*}
+
+The coefficient of \texttt{Mixed Race} is sgnificant at 0.05 level, while all the other coefficients are significant at 0.01 level.
+
+However, the regression's R-Squared value is extremely low (around 0,015), indicating the regression may not fit the dataset closely.
+
 \section{The Next Steps}
+
+First of all, the gender for \texttt{Mixed Race Non-Hispanic} group might be mistakenly recorded in the raw dataset. Further investigation and validation would be required and necessary.
+
+The regression's R-Squared value is extremely low (around 0.015), indicating the regression may not fit the dataset closely. Further investigation should be performed.
 
 \end{document}
